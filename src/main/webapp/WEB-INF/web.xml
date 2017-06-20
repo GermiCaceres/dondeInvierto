@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+	<!-- Defino el Dispatcher.
+	(Encargado de resolver/atender peticiones del cliente) -->
+	<servlet>
+		<servlet-name>dondeInvierto</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- Se carga cuando se ejecuta el servidor -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- Mapeo peticiones -->
+	<servlet-mapping>
+		<servlet-name>dondeInvierto</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
