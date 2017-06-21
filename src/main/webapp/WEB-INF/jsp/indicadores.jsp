@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="ISO-8859-1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>¿Donde Invierto?</title>
@@ -30,15 +30,12 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<!--<li class="active"><a href="index.html">Inicio</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>-->
-						<li><a href="inicio.html">Inicio</a></li>
-						<li><a href="proyectos.html">Nuevo Proyecto</a></li>
-						<!-- <li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyecto <span class="caret"></span></a>
+						<!--<li class="active"><a href="index.html">Inicio</a></li> -->
+						<!--<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indicadores<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="nuevo_projecto.html">Nuevo Proyecto</a></li>
+								<li><a href="indicadores.html">Crear/Modificar Indicador</a></li>
+								<li><a href="#">Consultar Indicador</a></li>
 								<li><a href="#">Restaurar Proyecto</a></li>
 								<li><a href="#">Descargar Proyecto</a></li>
 								<li role="separator" class="divider"></li>
@@ -46,10 +43,18 @@
 								<li><a href="#">Separated link</a></li>
 								<li><a href="#">One more separated link</a></li>
 							</ul>
-						</li> -->
-						<li><a href="consultas.html">Consultas</a></li>
+						</li>-->						
+						<li><a href="inicio.html">Inicio</a></li>
+						<li><a href="proyectos.html">Nuevo Proyecto</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="consultas.html">Consultar cuentas</a></li>
+								<li><a href="#">Consultar indicadores</a></li>
+							</ul>
+						</li>
 						<li><a href="indicadores.html">Indicadores</a></li>
-						<li><a href="#Graficos">Graficos</a></li>
+						<li><a href="#Graficos">Gráficos</a></li>
 					</ul>
 				</div>
 			</div>
@@ -61,7 +66,7 @@
 			<!-- DivInfo -->
 			<div class="jumbotron">
 				<h1>Indicadores.</h1>
-				<p>Cree o elimine indicadores creados por usted.</p>
+				<p>Creé o elimine indicadores creados por usted.</p>
 			</div>
 
 			<!-- Formulario -->
@@ -75,7 +80,7 @@
 						<form:input path="nombre" cssClass="form-control" style="width:150px;"/> 
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Formula</label>
+						<label for="exampleInputEmail1">Fórmula</label>
 						<form:input path="formula" cssClass="form-control" style="width:600px;"/>
 					</div>
 

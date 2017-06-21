@@ -1,6 +1,6 @@
 package com.caia.model;
 
-public class FiltroConsulta {
+public class FiltroConsultaCuenta {
 	String empresa;
 	String cuenta;
 	String anio;

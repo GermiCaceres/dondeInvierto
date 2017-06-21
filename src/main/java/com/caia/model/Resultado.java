@@ -1,6 +1,6 @@
 package com.caia.model;
 
-public class Resultado extends Dato {
+public class Resultado extends Row {
 	
 	private Indicador indicador;
 	

@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="ISO-8859-1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>¿Donde Invierto?</title>
@@ -30,15 +30,12 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<!--<li class="active"><a href="index.html">Inicio</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>-->
-						<li><a href="inicio.html">Inicio</a></li>
-						<li><a href="proyectos.html">Nuevo Proyecto</a></li>
+						<!--<li class="active"><a href="index.html">Inicio</a></li> -->
 						<!--<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyecto <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indicadores<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="nuevo_projecto.html">Nuevo Proyecto</a></li>
+								<li><a href="indicadores.html">Crear/Modificar Indicador</a></li>
+								<li><a href="#">Consultar Indicador</a></li>
 								<li><a href="#">Restaurar Proyecto</a></li>
 								<li><a href="#">Descargar Proyecto</a></li>
 								<li role="separator" class="divider"></li>
@@ -46,10 +43,18 @@
 								<li><a href="#">Separated link</a></li>
 								<li><a href="#">One more separated link</a></li>
 							</ul>
-						</li>-->
-						<li><a href="consultas.html">Consultas</a></li>
+						</li>-->						
+						<li><a href="inicio.html">Inicio</a></li>
+						<li><a href="proyectos.html">Nuevo Proyecto</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="consultas.html">Consultar cuentas</a></li>
+								<li><a href="#">Consultar indicadores</a></li>
+							</ul>
+						</li>
 						<li><a href="indicadores.html">Indicadores</a></li>
-						<li><a href="#Graficos">Graficos</a></li>
+						<li><a href="#Graficos">Gráficos</a></li>
 					</ul>
 				</div>
 			</div>
@@ -61,7 +66,7 @@
 			<!-- DivInfo -->
 			<div class="jumbotron">
 				<h1>Bienvenido, Hector.</h1>
-				<p>Seleccione alguna opcion desde el menu desde aqui mismo para comenzar a trabajar.</p>
+				<p>Seleccione alguna opción desde el menu desde aquí mismo para comenzar a trabajar.</p>
 			</div>
 
 			<div id="column">
@@ -83,7 +88,7 @@
 						</div>
 						<div class="panel-body">
 							<center><img src="./images/graficos.png" class="img-circle"></center>
-							<p class="info">Acceda aquí para poder realizar representaciones en graficos de forma de barra, torta entre otros mas.</p>
+							<p class="info">Acceda aquí para poder realizar representaciones en gáficos de forma de barra, torta entre otros más.</p>
 						</div>
 					</div>
 				</a>
@@ -96,7 +101,7 @@
 						</div>
 						<div class="panel-body">
 							<center><img src="./images/consultas.png" class="img-circle"></center>
-							<p class="info">Haga consultas especificas usando filtros y trabajando con los datos cargados y los indicadores creados por usted.</p>
+							<p class="info">Haga consultas específicas usando filtros y trabajando con los datos cargados y los indicadores creados por usted.</p>
 						</div>
 					</div>
 				</a>
@@ -109,7 +114,7 @@
 						</div>
 						<div class="panel-body">
 							<center><img src="./images/indicadores.png" class="img-circle"></center>
-							<p class="info">Gestione los indicadores economicos.</p>
+							<p class="info">Gestione los indicadores económicos.</p>
 						</div>
 					</div>
 				</a>
@@ -121,7 +126,7 @@
 			</div>
 					
 			<c:choose>
-			    <c:when test="${dataBase.esVacio()}">
+			    <c:when test="${database.esVacio()}">
 			    	<div class="alert alert-info" role="alert">
 						<strong>Informando!</strong> No se han detectado datos cargados, por favor cargue un archivo ".csv" desde el panel "Proyecto".
 					</div>
@@ -137,12 +142,12 @@
 			              </tr>
 			            </thead>
 			            <tbody>
-				        <c:forEach items="${dataBase.datos}" var="dato">     
+				        <c:forEach items="${database.rows}" var="row">     
 						  	<tr>
-				                <td><c:out value="${(dato.empresa).nombreEmpresa}"/></td>
-				                <td><c:out value="${(dato.cuenta).nombreCuenta}"/></td>
-				                <td><c:out value="${dato.anio}"/></td>
-				                <td><c:out value="${dato.valor}"/></td>
+				                <td><c:out value="${(row.empresa).nombreEmpresa}"/></td>
+				                <td><c:out value="${(row.cuenta).nombreCuenta}"/></td>
+				                <td><c:out value="${row.anio}"/></td>
+				                <td><c:out value="${row.valor}"/></td>
 			              	</tr>
 						</c:forEach>
 						</tbody>

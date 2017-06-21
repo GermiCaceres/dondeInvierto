@@ -13,18 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.caia.model.Cuenta;
-import com.caia.model.DataBase;
-import com.caia.model.Dato;
+import com.caia.model.Database;
+import com.caia.model.Row;
 import com.caia.model.Empresa;
-import com.caia.model.FiltroConsulta;
+import com.caia.model.FiltroConsultaCuenta;
 import com.caia.model.Indicador;
 import com.caia.model.Resultado;
 
 @Controller
 public class MyController {
 	
-	private DataBase dataBase = new DataBase();
-	private ArrayList<Resultado> resultados = new ArrayList<Resultado>();
+	private Database database = Database.getInstance();
 	private ArrayList<String> empresas = new ArrayList<String>();
 	private ArrayList<String> cuentas = new ArrayList<String>();
 	private ArrayList<Integer> anios = new ArrayList<Integer>();
@@ -32,14 +31,14 @@ public class MyController {
 	/* Acceso a Inicio */
 	@RequestMapping("inicio")
 	public String irAInicio(ModelMap model){
-		model.addAttribute("dataBase", dataBase);
+		model.addAttribute("database", database);
 		return "inicio"; 
 	}
 	
 	/* Acceso a Proyectos */
 	@RequestMapping("proyectos")
 	public String irAProyectos(ModelMap model){
-		model.addAttribute("dataBase",dataBase);
+		model.addAttribute("database",database);
 		return "proyectos";
 	}
 	
@@ -53,21 +52,22 @@ public class MyController {
 	/* Acceso a Consultas */
 	@RequestMapping("consultas")
 	public ModelAndView irAConsultas(ModelMap model){
-		ModelAndView newModel = new ModelAndView("consultas","command",new FiltroConsulta());
-		newModel.addObject("dataBase", dataBase);
+		ModelAndView newModel = new ModelAndView("consultas","command",new FiltroConsultaCuenta());
+		newModel.addObject("database", database);
 		newModel.addObject("empresas",empresas);
 		newModel.addObject("cuentas",cuentas);
 		newModel.addObject("anios",anios);
+		ArrayList<Row> resultados = new ArrayList<Row>();
 		newModel.addObject("resultados", resultados);
 		return newModel;
 	}
 	
 	/* Generar consulta */
 	@RequestMapping(value="generarConsulta", method=RequestMethod.POST)
-	public String generarConsulta(@ModelAttribute("SpringWeb") FiltroConsulta unFiltro, ModelMap model){
-		resultados = dataBase.generarConsulta(unFiltro);
+	public String generarConsulta(@ModelAttribute("SpringWeb") FiltroConsultaCuenta unFiltro, ModelMap model){
+		ArrayList<Row> resultados = database.generarConsulta(unFiltro);
 		model.addAttribute("resultados", resultados);
-		model.addAttribute("command", new FiltroConsulta());
+		model.addAttribute("command", new FiltroConsultaCuenta());
 		return "consultas";
 	}
 	
@@ -91,7 +91,7 @@ public class MyController {
 			
 				try{
 					
-					dataBase.vaciar();
+					database.vaciar();
 					
 					model.addAttribute("file",file);
 					byte[] bytes = file.getBytes();
@@ -128,12 +128,12 @@ public class MyController {
 						
 						valor = Integer.parseInt(values[3]);
 						
-						dataBase.addRow(new Dato(empresa, cuenta, anio, valor));
+						database.addRow(new Row(empresa, cuenta, anio, valor));
 					
 					}
 					
 					model.addAttribute("msg",1);
-					model.addAttribute("dataBase",dataBase);
+					model.addAttribute("database",database);
 					return "proyectos";
 					
 				} catch(IOException s) {

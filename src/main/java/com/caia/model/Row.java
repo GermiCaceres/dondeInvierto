@@ -1,13 +1,13 @@
 package com.caia.model;
 
-public class Dato {
+public class Row {
 	private Empresa empresa;
 	private Cuenta cuenta;
 	private int anio;
 	private int valor;
 	
 	// Constructor
-	public Dato(Empresa _empresa, Cuenta _cuenta, int _anio, int _valor){
+	public Row(Empresa _empresa, Cuenta _cuenta, int _anio, int _valor){
 		empresa = _empresa;
 		cuenta = _cuenta;
 		anio = _anio;
