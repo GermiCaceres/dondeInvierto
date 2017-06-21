@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.jardis.dondeinvierto">
+	<logger name="com.caia.dondeinvierto">
 		<level value="info" />
 	</logger>
 	

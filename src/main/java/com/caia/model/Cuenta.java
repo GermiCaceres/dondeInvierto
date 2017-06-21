@@ -1,4 +1,4 @@
-package com.jardis.model;
+package com.caia.model;
 
 public class Cuenta {
 	
