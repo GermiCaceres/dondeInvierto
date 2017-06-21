@@ -37,7 +37,7 @@ public class DataBase {
 				if(cuenta.getNombreCuenta().equals(unFiltro.getCuenta()) || unFiltro.getCuenta().equals("Todos")){
 					if(Integer.toString(anio).equals(unFiltro.getAnio()) || unFiltro.getAnio().equals("Todos")){
 						
-						resultados.add(new Resultado(empresa,cuenta,anio,valor));
+						resultados.add(new Resultado(empresa,cuenta,anio,valor,null));
 					
 					}
 				}

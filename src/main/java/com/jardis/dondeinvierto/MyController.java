@@ -85,7 +85,9 @@ public class MyController {
 		
 		if(!file.isEmpty()){
 			
-			if(file.getContentType().equals("text/csv")){
+			System.out.println(file.getContentType());
+			
+			if(file.getOriginalFilename().contains(".csv")){
 			
 				try{
 					
