@@ -7,7 +7,7 @@ Vayan agregandose con los legajos de cada uno
 ### Version 2.0 - Checklist
 
 - [ ] Reacomodar clases
-- [ ] Consultas por intevarlo de anios
+- [ ] Consultas por intervalo de años
 - [ ] Incluir parser con catch de errores
 - [ ] Crear indicadores y guardarlos en la lista de indicadores
 - [ ] Vista y funcion de consulta de indicadores
