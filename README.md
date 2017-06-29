@@ -2,7 +2,7 @@
 Proyecto integrador de Diseño de Sistemas 2017
 
 ### Integrantes
-Vayan agregandose con los legajos de cada uno
+Caceres German - 155.553-4
 
 ### Version 2.0 - Checklist
 
